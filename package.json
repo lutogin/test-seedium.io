@@ -5,7 +5,22 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run test-integration",
-    "test-integration": "mocha test/Integration/*.test.js --exit"
+    "test-integration": "mocha test/Integration/*.test.js --exit",
+    "start": "yarn backpack dev"
+  },
+  "betterScripts": {
+    "start:development": {
+      "command": "yarn backpack build",
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
+    "start:production": {
+      "command": "yarn migrate && node ./build/main.js",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
   },
   "author": "Seedium",
   "license": "ISC",
